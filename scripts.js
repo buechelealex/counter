@@ -13,7 +13,7 @@ function render() {
 
     const link = document.createElement('a');
     link.className = 'card-link';
-    link.href = `../counter/index.html?id=${encodeURIComponent(c.id)}`;
+    link.href = `counter/index.html?id=${encodeURIComponent(c.id)}`;
 
     const name = document.createElement('div');
     name.className = 'card-name';

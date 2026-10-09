@@ -3,7 +3,7 @@
   "short_name": "Counter",
   "description": "Mehrere Counter mit Tagesverlauf",
   "id": "./",
-  "start_url": "./home/index.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

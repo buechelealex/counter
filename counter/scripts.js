@@ -13,7 +13,7 @@ const els = {
 };
 
 function goHome() {
-  location.replace('../home/index.html');
+  location.replace('../index.html');
 }
 
 function render() {

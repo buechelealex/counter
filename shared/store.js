@@ -87,6 +87,8 @@ const Store = {
   }
 };
 
+// Relativ zu dieser Datei aufloesen, damit es von jeder Activity-Ebene aus passt.
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../sw.js', { scope: '../' });
+  const root = new URL('../', document.currentScript.src);
+  navigator.serviceWorker.register(new URL('sw.js', root), { scope: root.href });
 }

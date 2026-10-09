@@ -17,18 +17,19 @@ Die App ist eine **Progressive Web App (PWA)**: Du kannst sie über Chrome auf d
 
 ## Projektstruktur
 
-Jede Activity (jeder Bildschirm) liegt in einem eigenen Ordner mit eigener `index.html`, `style.css` und `scripts.js`.
+Jede Activity (jeder Bildschirm) hat eine eigene `index.html`, `style.css` und `scripts.js`. Die Startseite liegt direkt im Hauptverzeichnis, alle anderen Activities in eigenen Ordnern.
 
 ```
 counter/
-├── index.html            Leitet weiter auf home/
+├── index.html            Activity: Übersicht aller Counter (Startseite)
+├── style.css
+├── scripts.js
 ├── manifest.json         PWA-Manifest (Name, Icons, Start-URL)
 ├── sw.js                 Service Worker (Offline-Cache)
 ├── icons/                App-Icons (192px, 512px, maskable)
 ├── shared/
 │   ├── store.js          Datenschicht (localStorage) und Registrierung des Service Workers
 │   └── base.css          Farben, Dark Mode, gemeinsame Layout-Elemente
-├── home/                 Activity: Übersicht aller Counter
 ├── new/                  Activity: neuen Counter anlegen
 └── counter/              Activity: Detailansicht eines Counters (?id=...)
 ```
