@@ -64,20 +64,21 @@ main { padding-bottom: 100px; }
 .card-plus:active { transform: scale(0.9); }
 
 .card-minus {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: 1px solid var(--border);
+  border: 2px solid var(--accent);
   background: transparent;
-  color: var(--text);
-  font-size: 1.4rem;
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: 600;
   line-height: 1;
   flex-shrink: 0;
   transition: transform 0.1s;
 }
 
 .card-minus:active { transform: scale(0.9); }
-.card-minus:disabled { opacity: 0.3; }
+.card-minus:disabled { opacity: 0.45; }
 
 .empty {
   text-align: center;
