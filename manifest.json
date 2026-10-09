@@ -2,7 +2,7 @@
   "name": "Counter",
   "short_name": "Counter",
   "description": "Mehrere Counter mit Tagesverlauf",
-  "id": "./",
+  "id": "./?app=counter",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -1,5 +1,5 @@
 // Service Worker: macht die App installierbar und offline nutzbar.
-const CACHE = 'counter-v5';
+const CACHE = 'counter-v6';
 
 const ASSETS = [
   './',
