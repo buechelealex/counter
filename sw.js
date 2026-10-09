@@ -1,5 +1,5 @@
 // Service Worker: macht die App installierbar und offline nutzbar.
-const CACHE = 'counter-v6';
+const CACHE = 'counter-v7';
 
 const ASSETS = [
   './',
@@ -25,10 +25,13 @@ self.addEventListener('install', e => {
   self.skipWaiting();
 });
 
+// Nur eigene alte Caches loeschen: andere Apps auf derselben Domain teilen sich den Cache-Speicher.
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(
+        keys.filter(k => k.startsWith('counter-') && k !== CACHE).map(k => caches.delete(k))
+      ))
       .then(() => self.clients.claim())
   );
 });
