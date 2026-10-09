@@ -78,4 +78,4 @@ Andere statische Hoster wie Netlify oder Cloudflare Pages funktionieren genauso.
 
 Der Service Worker lädt Dateien zuerst aus dem Netz und greift nur offline auf den Cache zurück. Änderungen kommen deshalb beim nächsten Öffnen mit Internetverbindung an.
 
-Wenn du neue Dateien hinzufügst, trägst du sie zusätzlich in die `ASSETS`-Liste in `sw.js` ein und erhöhst die Versionsnummer in `CACHE` (z. B. `counter-v2`).
+Nach jeder Änderung erhöhst du trotzdem die Versionsnummer in `CACHE` in `sw.js` (z. B. `counter-v2` → `counter-v3`). Dadurch installiert sich der Service Worker neu und lädt den kompletten Offline-Cache frisch, auch für Seiten, die du seit der Änderung noch nicht online geöffnet hast. Neue Dateien trägst du zusätzlich in die `ASSETS`-Liste ein.
