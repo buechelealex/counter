@@ -32,6 +32,25 @@ html, body {
 
 button { font: inherit; cursor: pointer; }
 
+/* Plus/Minus als gezeichnete Balken statt Schriftzeichen: immer exakt mittig. */
+.i-plus, .i-minus { position: relative; }
+
+.i-plus::before,
+.i-plus::after,
+.i-minus::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--icon-size, 18px);
+  height: var(--icon-stroke, 3px);
+  border-radius: var(--icon-stroke, 3px);
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.i-plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+
 .topbar {
   position: sticky;
   top: 0;
@@ -61,10 +80,11 @@ button { font: inherit; cursor: pointer; }
   border-radius: 50%;
   color: var(--text);
   text-decoration: none;
-  font-size: 1.4rem;
   background: var(--surface);
   border: 1px solid var(--border);
 }
+
+.back svg { width: 20px; height: 20px; display: block; }
 
 main {
   padding: 0 16px calc(32px + env(safe-area-inset-bottom));

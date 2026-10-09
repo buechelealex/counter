@@ -41,8 +41,7 @@ function render() {
     num.className = 'count';
     num.textContent = count;
     const minus = document.createElement('button');
-    minus.className = 'day-minus';
-    minus.textContent = '−';
+    minus.className = 'day-minus i-minus';
     minus.setAttribute('aria-label', `Einen Klick vom ${formatDay(day)} entfernen`);
     minus.addEventListener('click', () => {
       Store.decrement(id, day);

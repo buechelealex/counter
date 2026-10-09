@@ -30,8 +30,7 @@ function render() {
     total.textContent = c.counts.length;
 
     const minus = document.createElement('button');
-    minus.className = 'card-minus';
-    minus.textContent = '−';
+    minus.className = 'card-minus i-minus';
     minus.disabled = c.counts.length === 0;
     minus.setAttribute('aria-label', `${c.name} runterzaehlen`);
     minus.addEventListener('click', () => {
@@ -40,8 +39,7 @@ function render() {
     });
 
     const plus = document.createElement('button');
-    plus.className = 'card-plus';
-    plus.textContent = '+';
+    plus.className = 'card-plus i-plus';
     plus.setAttribute('aria-label', `${c.name} hochzaehlen`);
     plus.addEventListener('click', () => {
       Store.increment(c.id);
