@@ -1,0 +1,65 @@
+.form {
+  display: grid;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.field span,
+.field legend {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.field input {
+  font: inherit;
+  font-size: 1.1rem;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.field input:focus {
+  outline: 2px solid #5b5bd6;
+  outline-offset: 1px;
+}
+
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.swatch {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  background: var(--c);
+}
+
+.swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 3px var(--text);
+}
+
+.submit {
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #5b5bd6;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
