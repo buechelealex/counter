@@ -50,15 +50,18 @@
 
 .stat small { color: var(--muted); }
 
-.undo {
-  padding: 0 14px;
+.minus {
+  width: 72px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
+  font-size: 2rem;
+  line-height: 1;
 }
 
-.undo:disabled { opacity: 0.4; }
+.minus:active { transform: scale(0.95); }
+.minus:disabled { opacity: 0.4; }
 
 h2 {
   font-size: 1rem;
@@ -80,16 +83,30 @@ h2 {
 
 .history li {
   display: flex;
-  justify-content: space-between;
-  padding: 12px 16px;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px 8px 16px;
   border-top: 1px solid var(--border);
 }
 
 .history li:first-child { border-top: none; }
 
+.history li > span:first-child { flex: 1; }
+
 .history .count {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+}
+
+.day-minus {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .muted { color: var(--muted); }

@@ -6,7 +6,7 @@ const els = {
   total: document.getElementById('total'),
   today: document.getElementById('today'),
   days: document.getElementById('days'),
-  undo: document.getElementById('undo'),
+  minus: document.getElementById('minus'),
   history: document.getElementById('history'),
   noHistory: document.getElementById('no-history'),
   delete: document.getElementById('delete')
@@ -29,7 +29,7 @@ function render() {
   els.total.textContent = c.counts.length;
   els.today.textContent = Store.todayCount(c);
   els.days.textContent = days.length;
-  els.undo.disabled = c.counts.length === 0;
+  els.minus.disabled = c.counts.length === 0;
   els.noHistory.hidden = days.length > 0;
 
   els.history.innerHTML = '';
@@ -40,7 +40,15 @@ function render() {
     const num = document.createElement('span');
     num.className = 'count';
     num.textContent = count;
-    li.append(label, num);
+    const minus = document.createElement('button');
+    minus.className = 'day-minus';
+    minus.textContent = '−';
+    minus.setAttribute('aria-label', `Einen Klick vom ${formatDay(day)} entfernen`);
+    minus.addEventListener('click', () => {
+      Store.decrement(id, day);
+      render();
+    });
+    li.append(label, num, minus);
     els.history.append(li);
   }
 }
@@ -51,8 +59,8 @@ els.tap.addEventListener('click', () => {
   render();
 });
 
-els.undo.addEventListener('click', () => {
-  Store.undo(id);
+els.minus.addEventListener('click', () => {
+  Store.decrement(id);
   render();
 });
 

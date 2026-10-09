@@ -29,6 +29,16 @@ function render() {
     total.className = 'card-total';
     total.textContent = c.counts.length;
 
+    const minus = document.createElement('button');
+    minus.className = 'card-minus';
+    minus.textContent = '−';
+    minus.disabled = c.counts.length === 0;
+    minus.setAttribute('aria-label', `${c.name} runterzaehlen`);
+    minus.addEventListener('click', () => {
+      Store.decrement(c.id);
+      render();
+    });
+
     const plus = document.createElement('button');
     plus.className = 'card-plus';
     plus.textContent = '+';
@@ -39,7 +49,7 @@ function render() {
       render();
     });
 
-    li.append(link, total, plus);
+    li.append(link, total, minus, plus);
     list.append(li);
   }
 }

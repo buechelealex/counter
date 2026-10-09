@@ -7,10 +7,10 @@ Die App ist eine **Progressive Web App (PWA)**: Du kannst sie über Chrome auf d
 ## Funktionen
 
 - Beliebig viele Counter mit eigenem Namen und eigener Farbe
-- Schnelles Hochzählen direkt aus der Übersicht über den **+**-Knopf
+- Schnelles Hoch- und Runterzählen direkt aus der Übersicht über die Knöpfe **+** und **−**
 - Detailansicht mit großem Zählknopf, Anzahl von heute und Anzahl der aktiven Tage
 - Verlauf pro Tag, neueste Tage zuerst
-- Rückgängig für den letzten Klick
+- Fehlklicks entfernen: **−** löscht den letzten Klick, **−** im Verlauf löscht einen Klick von genau diesem Tag
 - Counter löschen
 - Heller und dunkler Modus, richtet sich nach der Systemeinstellung
 - Offline nutzbar über einen Service Worker

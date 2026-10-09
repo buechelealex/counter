@@ -62,8 +62,12 @@ const Store = {
     return this.update(id, c => c.counts.push(todayKey()));
   },
 
-  undo(id) {
-    return this.update(id, c => c.counts.pop());
+  // Entfernt einen Klick: ohne `day` den letzten, sonst den letzten von diesem Tag.
+  decrement(id, day) {
+    return this.update(id, c => {
+      const i = day ? c.counts.lastIndexOf(day) : c.counts.length - 1;
+      if (i >= 0) c.counts.splice(i, 1);
+    });
   },
 
   remove(id) {
