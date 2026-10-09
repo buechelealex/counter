@@ -1,5 +1,5 @@
 // Service Worker: macht die App installierbar und offline nutzbar.
-const CACHE = 'counter-v4';
+const CACHE = 'counter-v5';
 
 const ASSETS = [
   './',
@@ -36,6 +36,14 @@ self.addEventListener('activate', e => {
 // Network first, damit Updates sofort ankommen; offline aus dem Cache.
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+
+  // Aeltere Installationen starten noch mit ./home/index.html (vor dem Umzug ins Root).
+  const oldHome = new URL('./home/', self.registration.scope).pathname;
+  if (e.request.mode === 'navigate' && new URL(e.request.url).pathname.startsWith(oldHome)) {
+    e.respondWith(Response.redirect(self.registration.scope, 302));
+    return;
+  }
+
   e.respondWith(
     fetch(e.request)
       .then(res => {
